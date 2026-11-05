@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--head-->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap"
+    />
+    <script>
+      // before first paint: motion preference (OS, or ?motion=on|off, remembered) and theme
+      ;(function () {
+        var d = document.documentElement, m = null
+        d.classList.add('js')
+        try {
+          var q = new URLSearchParams(location.search).get('motion')
+          if (q === 'on' || q === 'off') localStorage.setItem('kage-motion', q)
+          m = localStorage.getItem('kage-motion')
+          var t = localStorage.getItem('kage-theme')
+          if (t === 'light' || t === 'dark') d.dataset.theme = t
+        } catch (e) {}
+        var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+        d.dataset.motion = m === 'on' ? 'on' : m === 'off' ? 'off' : reduce ? 'off' : 'on'
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app--></div>
+    <script type="module" src="/src/entry-client.jsx"></script>
+  </body>
+</html>
