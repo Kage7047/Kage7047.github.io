@@ -29,7 +29,7 @@ export default function KyvernoFailsOpen({ route }) {
       </p>
       <p>
         None of that is new. What I wanted to know is whether it actually holds, so every defence in the repository comes
-        with an attack that CI runs on every pull request. This post is about four things those attacks found that I would
+        with an attack that CI runs on every pull request. This post is about five things those attacks found that I would
         not have found by reading documentation, starting with the one I least expected: setting Kyverno&rsquo;s{' '}
         <code>failurePolicy</code> to <code>Fail</code> does not stop pods getting in when Kyverno is gone.
       </p>

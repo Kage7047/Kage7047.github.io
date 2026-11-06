@@ -10,7 +10,7 @@ export const POSTS = [
     slug: 'kyverno-fails-open',
     path: '/writing/kyverno-fails-open/',
     title: 'My admission policy said Fail. Kyverno let everything in.',
-    dek: 'Scaling Kyverno to zero makes it delete its own webhooks. That, and three more things I only found because every defence in my supply chain has an attack that must get through without it.',
+    dek: 'Scaling Kyverno to zero makes it delete its own webhooks. That, and four more things I only found because every defence in my supply chain has an attack that must get through without it.',
     date: '2026-11-06',
     tags: ['Kubernetes', 'supply chain', 'security'],
     image: '/og/kyverno-fails-open.png',
