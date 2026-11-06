@@ -42,7 +42,21 @@ const cell = (x, y, v) =>
 const grid = MATRIX.map((row, r) => row.map((v, c) => cell(940 + c * 54, 236 + r * 38, v)).join('')).join('')
 const matrix = `${grid}<text x="1021" y="530" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#9a988f">bugs × test modes</text>`
 
+// one row per cluster attack: refused (green) with its control admitted (orange)
+const shield = Array.from({ length: 14 }, (_, i) => {
+  const x = 930 + (i % 2) * 90
+  const y = 200 + Math.floor(i / 2) * 44
+  return `<rect x="${x}" y="${y}" width="38" height="30" rx="5" fill="#2f7d4f"/><rect x="${x + 42}" y="${y}" width="38" height="30" rx="5" fill="#d95926"/>`
+}).join('')
+const attacks = `${shield}<text x="1015" y="530" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#9a988f">attack refused · control admitted</text>`
+
 const cards = {
+  'kyverno-fails-open': card({
+    eyebrow: 'WRITING · KUBERNETES SECURITY',
+    lines: ['My admission policy said', 'Fail. Kyverno let', 'everything in.'],
+    foot: 'Ilya Nesterenok · kage7047.github.io',
+    chart: attacks,
+  }),
   'features-hide-bugs': card({
     eyebrow: 'WRITING · DISTRIBUTED SYSTEMS',
     lines: ['Every feature I added', 'to my Raft hid a bug', 'from my tests'],
