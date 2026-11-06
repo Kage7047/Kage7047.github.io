@@ -12,6 +12,12 @@ const PROJECTS = [
     text: 'Raft consensus and a replicated key-value store, tested by a deterministic simulator (one seed replays a whole hostile run) and a kill -9 chaos test of real processes, both checked for linearizability. Seven deliberately broken builds prove the checks can fail.',
   },
   {
+    name: 'supply-chain-fortress',
+    href: 'https://github.com/Kage7047/supply-chain-fortress',
+    stack: 'Sigstore · Kyverno · Kubernetes · GitHub Actions',
+    text: 'A software supply chain where every defence has an attack that proves it: keyless-signed images, SBOM and SLSA provenance, admission policies, and Kyverno verified before it is installed. Each attack runs in CI with a control that shows it gets in without that defence.',
+  },
+  {
     name: 'pg-lease-queue',
     href: 'https://github.com/Kage7047/pg-lease-queue',
     stack: 'Python · Postgres · asyncio',
