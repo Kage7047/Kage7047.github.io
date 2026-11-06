@@ -6,6 +6,12 @@ import { formatDate } from '../lib/format.js'
 
 const PROJECTS = [
   {
+    name: 'faultline',
+    href: 'https://github.com/Kage7047/faultline',
+    stack: 'Go · Raft · Porcupine',
+    text: 'Raft consensus and a replicated key-value store, tested by a deterministic simulator (one seed replays a whole hostile run) and a kill -9 chaos test of real processes, both checked for linearizability. Seven deliberately broken builds prove the checks can fail.',
+  },
+  {
     name: 'pg-lease-queue',
     href: 'https://github.com/Kage7047/pg-lease-queue',
     stack: 'Python · Postgres · asyncio',

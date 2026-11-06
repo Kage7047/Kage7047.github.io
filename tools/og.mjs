@@ -25,7 +25,30 @@ const bar = (x, h, color, label) =>
   `<rect x="${x}" y="${520 - h}" width="56" height="${h}" rx="6" fill="${color}"/><text x="${x + 28}" y="${508 - h}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" fill="#ecebe6">${label}</text>`
 const chart = `${bar(960, 22, '#d95926', '306')}${bar(1030, 150, '#3987e5', '2,152')}<text x="1023" y="560" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#9a988f">8 workers: before → after</text>`
 
+// the detection matrix in miniature: 7 bugs x 3 modes; orange = missed, outline = n/a
+const MATRIX = [
+  [0, 0, 0],
+  [1, 1, 0],
+  [0, 0, 2],
+  [0, 0, 0],
+  [0, 0, 2],
+  [1, 0, 0],
+  [0, 0, 0],
+]
+const cell = (x, y, v) =>
+  v === 2
+    ? `<rect x="${x + 1}" y="${y + 1}" width="44" height="28" rx="5" fill="none" stroke="#3a3a37" stroke-width="2"/>`
+    : `<rect x="${x}" y="${y}" width="46" height="30" rx="5" fill="${v ? '#d95926' : '#2b2b29'}"/>`
+const grid = MATRIX.map((row, r) => row.map((v, c) => cell(940 + c * 54, 236 + r * 38, v)).join('')).join('')
+const matrix = `${grid}<text x="1021" y="530" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#9a988f">bugs × test modes</text>`
+
 const cards = {
+  'features-hide-bugs': card({
+    eyebrow: 'WRITING · DISTRIBUTED SYSTEMS',
+    lines: ['Every feature I added', 'to my Raft hid a bug', 'from my tests'],
+    foot: 'Ilya Nesterenok · kage7047.github.io',
+    chart: matrix,
+  }),
   'more-workers-slower': card({
     eyebrow: 'WRITING · POSTGRES',
     lines: ['Adding workers made my', 'Postgres queue 5× slower'],
