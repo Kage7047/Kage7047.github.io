@@ -7,6 +7,15 @@ export const SITE = {
 
 export const POSTS = [
   {
+    slug: 'features-hide-bugs',
+    path: '/writing/features-hide-bugs/',
+    title: 'Every feature I added to my Raft hid a bug from my tests',
+    dek: 'PreVote, CheckQuorum, snapshots and ReadIndex each made the cluster better and the simulator blinder. Seven deliberately broken builds showed where, and one of them found a bug in my chaos test.',
+    date: '2026-11-06',
+    tags: ['Go', 'distributed systems', 'testing'],
+    image: '/og/features-hide-bugs.png',
+  },
+  {
     slug: 'more-workers-slower',
     path: '/writing/more-workers-slower/',
     title: 'Adding workers made my Postgres queue 5× slower',

@@ -1036,3 +1036,74 @@ html.js[data-motion='on'] .split-parent[data-split-ready='false'] {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* control x mode matrix (post: faultline) */
+.matrix {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+}
+.matrix:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: 2px;
+}
+.matrix table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font: 0.88rem/1.35 var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+.matrix th,
+.matrix td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  font-weight: 400;
+}
+.matrix thead th {
+  color: var(--ink-3);
+  font-size: 0.8rem;
+}
+.matrix th small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+.matrix tbody th {
+  color: var(--ink);
+  min-width: 190px;
+}
+.matrix__caught {
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.matrix__missed {
+  white-space: nowrap;
+  color: var(--ink);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--series-2) 16%, transparent);
+  box-shadow: inset 3px 0 0 var(--series-2);
+}
+.matrix__na {
+  color: var(--ink-3);
+}
+/* keep the rule names in view while the modes scroll sideways */
+.matrix tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--bg);
+}
+@media (max-width: 560px) {
+  .matrix th,
+  .matrix td {
+    padding: 9px 8px;
+  }
+  .matrix tbody th {
+    min-width: 140px;
+    max-width: 150px;
+  }
+}
